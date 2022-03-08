@@ -12,3 +12,20 @@ Resources:
       Name: GITHUB_REPO
       Body:
 OPEN_API_SPEC
+
+  ApiDeployment:
+    Type: AWS::ApiGateway::Deployment
+    Properties:
+      Description: 'Deployed API'
+      RestApiId: !Ref ApiGateway
+
+  Prod:
+    Type: AWS::ApiGateway::Stage
+    Properties:
+      StageName: Prod
+      Description: Prod Stage
+      RestApiId: !Ref ApiGateway
+      DeploymentId: !Ref ApiDeployment
+      Variables:
+        Stack: Prod
+      
