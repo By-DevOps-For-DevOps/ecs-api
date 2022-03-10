@@ -30,7 +30,7 @@ OPEN_API_SPEC
     Type: AWS::ApiGateway::Stage
     Properties:
       StageName: !Ref EnvironmentName
-      Description: Evironment Stage
+      Description: Environment Stage
       RestApiId: !Ref ApiGateway
       DeploymentId: !Ref ApiDeployment
       Variables:
