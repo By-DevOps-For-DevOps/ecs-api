@@ -2,6 +2,13 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: >
   This template provisions API Gateway's RestApi from Swagger.yaml.
   (If Swagger.yaml and $S3_SWAGGER_BUCKET_NAME parameter of ecs-cicd are specified).
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Description: Name of the Environment.
+    Default: ENVIRONMENT_NAME
+
 Resources:
   ApiGateway:
     Type: AWS::ApiGateway::RestApi
@@ -22,10 +29,10 @@ OPEN_API_SPEC
   Prod:
     Type: AWS::ApiGateway::Stage
     Properties:
-      StageName: Prod
-      Description: Prod Stage
+      StageName: !Ref EnvironmentName
+      Description: Evironment Stage
       RestApiId: !Ref ApiGateway
       DeploymentId: !Ref ApiDeployment
       Variables:
-        Stack: Prod
-      
+        Stack: !Ref EnvironmentName
+

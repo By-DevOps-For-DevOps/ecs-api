@@ -105,6 +105,7 @@ if [ "$DEPLOY_ENVIRONMENT" != "release" ] ; then
   sed -i "s@TAG@$TAG@g" ecs/service.yaml
   sed -i "s#EMAIL#$EMAIL#g" ecs/service.yaml
   sed -i "s@ENVIRONMENT_NAME@$ENVIRONMENT_NAME@g" ecs/service.yaml
+  sed -i "s@ENVIRONMENT_NAME@$ENVIRONMENT_NAME@g" ecs/gateway.yaml
   sed -i "s@BUILD_SCOPE@$BUILD_SCOPE@g" ecs/service.yaml
   sed -i "s@ECS_REPOSITORY_NAME@$ECR_NAME@g" ecs/service.yaml
   sed -i "s@ECS_CPU_COUNT@$ECS_CPU_COUNT@g" ecs/service.yaml
