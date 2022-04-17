@@ -26,13 +26,13 @@ OPEN_API_SPEC
       Description: 'Deployed API'
       RestApiId: !Ref ApiGateway
 
-  ApiStage:
-    Type: AWS::ApiGateway::Stage
-    Properties:
-      StageName: !Ref EnvironmentName
-      Description: Environment Stage
-      RestApiId: !Ref ApiGateway
-      DeploymentId: !Ref ApiDeployment
-      Variables:
-        Stack: !Ref EnvironmentName
+  # ApiStage:
+  #   Type: AWS::ApiGateway::Stage
+  #   Properties:
+  #     StageName: !Ref EnvironmentName
+  #     Description: Environment Stage
+  #     RestApiId: !Ref ApiGateway
+  #     DeploymentId: !Ref ApiDeployment
+  #     Variables:
+  #       Stack: !Ref EnvironmentName
 
